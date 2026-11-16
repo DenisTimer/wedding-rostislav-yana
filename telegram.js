@@ -7,6 +7,7 @@ export async function notifyTelegram(record, env, requestFetch = fetch) {
     'Гость / семья: ' + record.name,
     'Участие: ' + (record.attendance === 'yes' ? 'Придут ✅' : 'Не смогут'),
     record.allergies ? 'Аллергии: ' + record.allergies : '',
+    record.attendance === 'yes' ? 'Алкоголь: ' + (record.alcohol?.length ? record.alcohol.join(', ') : 'не указан') : '',
     record.songs?.length ? 'Песни:\n' + record.songs.join('\n') : '',
     record.wishes ? 'Пожелания: ' + record.wishes : '',
     '',
